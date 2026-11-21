@@ -1,0 +1,13 @@
+-- Tabel Master Komponen
+CREATE TABLE IF NOT EXISTS `Komponen` (
+    `ID_Komponen` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `Kode_Komponen` VARCHAR(30) NOT NULL UNIQUE,
+    `Nama_Komponen` VARCHAR(100) NOT NULL,
+    `Kategori` VARCHAR(50) NOT NULL,
+    `Interval_Cek_KM` INT UNSIGNED NULL DEFAULT NULL,
+    `Interval_Ganti_KM` INT UNSIGNED NULL DEFAULT NULL,
+    `Keterangan` TEXT NULL DEFAULT NULL,
+    `Created_At` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `Updated_At` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX `idx_komponen_kategori` (`Kategori`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
